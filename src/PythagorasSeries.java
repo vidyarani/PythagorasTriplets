@@ -9,9 +9,7 @@ public class PythagorasSeries {
     private static void getPythagorasSeries1(int limit) {
         Stream<Pair> pairStream = IntStream.rangeClosed(1, limit).boxed().flatMap(a -> generatePairList(a, limit));
         Stream<Triplet> tripletStream = pairStream.flatMap(b -> generateTriplet(b, limit));
-        tripletStream.filter(Triplet::isPythagorean).forEach(triplet -> {
-            System.out.println(triplet);
-        });
+        tripletStream.filter(Triplet::isPythagorean).forEach(System.out::println);
     }
 
     private static Stream<Triplet> generateTriplet(Pair pair, int limit) {
